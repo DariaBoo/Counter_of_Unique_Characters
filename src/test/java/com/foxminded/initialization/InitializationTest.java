@@ -14,7 +14,6 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.foxminded.cache.Cache;
-import com.foxminded.initialization.Initialization;
 
 @ExtendWith(MockitoExtension.class)
 class InitializationTest {

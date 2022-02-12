@@ -3,6 +3,8 @@ package com.foxminded.counter;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
+import com.foxminded.counter.CharCounterTest;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -46,5 +48,4 @@ class CharCounterTest {
         Map<Character, Integer> expected = new LinkedHashMap<Character, Integer>();
         assertEquals(expected, counter.countCharacters(phrase));
     }
-
 }

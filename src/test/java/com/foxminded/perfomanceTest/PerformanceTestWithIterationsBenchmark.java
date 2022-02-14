@@ -20,7 +20,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-public class PerformanceTestBenchmark1 {
+public class PerformanceTestWithIterationsBenchmark {
     public static void main(String[] args) throws Exception {
         org.openjdk.jmh.Main.main(args);
     }

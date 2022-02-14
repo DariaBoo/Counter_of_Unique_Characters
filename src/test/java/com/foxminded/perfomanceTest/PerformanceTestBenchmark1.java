@@ -20,7 +20,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-public class PerfomanceTestBenchmark {
+public class PerformanceTestBenchmark1 {
     public static void main(String[] args) throws Exception {
         org.openjdk.jmh.Main.main(args);
     }
@@ -33,15 +33,19 @@ public class PerfomanceTestBenchmark {
 
         @Setup(Level.Trial)
         public void prepareCashe() {
-            map.put('h', 10000000);
-            map.put('e', 10000000);
-            map.put('l', 30000000);
-            map.put('o', 20000000);
-            map.put(' ', 10000000);
-            map.put('w', 10000000);
-            map.put('r', 10000000);
-            map.put('d', 10000000);
-            cache.saveCache(phrase, map);
+            for (int i = 0; i < 1000; i++) {
+               String phraseI = phrase + i;
+                map.put('h', 10000000);
+                map.put('e', 10000000);
+                map.put('l', 30000000);
+                map.put('o', 20000000);
+                map.put(' ', 10000000);
+                map.put('w', 10000000);
+                map.put('r', 10000000);
+                map.put('d', 10000000);
+                map.put((char)i, 1);
+                cache.saveCache(phraseI, map);
+            }
         }
     }
 
@@ -52,7 +56,10 @@ public class PerfomanceTestBenchmark {
     @Measurement(iterations = 3, time = 1)
     @Warmup(iterations = 5, time = 1)
     public void takeFromCache(PhraseExsitInTheCache test) {
-        test.cache.getCache(test.phrase);
+        for (int i = 0; i < 1000; i++) {
+            test.cache.getCache(test.phrase + i);
+           
+        }
     }
 
     @State(Scope.Thread)
@@ -70,14 +77,16 @@ public class PerfomanceTestBenchmark {
     @Warmup(iterations = 5, time = 1)
     public void countByMethod(PhraseNotExistInTheCache test, Blackhole blackhole) {
         Map<Character, Integer> map = new LinkedHashMap<Character, Integer>();
-        map = test.counter.countCharacters(test.phrase);
-        test.cache.saveCache(test.phrase, map);
+        for(int i =0; i<1000; i++) {
+        map = test.counter.countCharacters(test.phrase + i);
+        test.cache.saveCache(test.phrase+i, map);
         blackhole.consume(map);
+        }
     }
 
     private static String createPhrase() {
         StringBuilder phrase = new StringBuilder();
-        for (int i = 0; i < 10000000; i++) {
+        for (int i = 0; i < 10000; i++) {
             phrase.append("hello world ");
         }
         return phrase.toString();

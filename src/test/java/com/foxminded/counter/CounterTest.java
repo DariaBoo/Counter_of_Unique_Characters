@@ -3,13 +3,13 @@ package com.foxminded.counter;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
-import com.foxminded.counter.CharCounterTest;
+import com.foxminded.counter.CounterTest;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-class CharCounterTest {
-    CharCounter counter = new CharCounter();
+class CounterTest {
+    Counter counter = new Counter();
 
     @Test
     void countCharacters_shouldReturnFilledMap_whenInputPhrase() {

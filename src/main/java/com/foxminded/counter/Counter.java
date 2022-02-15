@@ -3,7 +3,7 @@ package com.foxminded.counter;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class CharCounter {
+public class Counter {
     public Map<Character, Integer> countCharacters(String phrase) {
         Map<Character, Integer> map = new LinkedHashMap<>();
         char[] characters = phrase.toCharArray();

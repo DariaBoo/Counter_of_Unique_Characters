@@ -14,7 +14,7 @@ import org.openjdk.jmh.annotations.Warmup;
 import org.openjdk.jmh.infra.Blackhole;
 
 import com.foxminded.cache.Cache;
-import com.foxminded.counter.CharCounter;
+import com.foxminded.counter.Counter;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -65,7 +65,7 @@ public class PerformanceTestWithIterationsBenchmark {
     @State(Scope.Thread)
     public static class PhraseNotExistInTheCache {
         public Cache cache = new Cache();
-        public CharCounter counter = new CharCounter();
+        public Counter counter = new Counter();
         public String phrase = createPhrase();
     }
 

@@ -7,10 +7,19 @@ import com.foxminded.cache.Cache;
 import com.foxminded.counter.CharCounter;
 import com.foxminded.formatter.Formatter;
 
-public class Initialization {
-    Cache cache = new Cache();
-    CharCounter counter = new CharCounter();
-    Formatter formatter = new Formatter();
+public class Initialization { //Меняем название класса. СharCalculator например.
+    Cache cache = new Cache(); // private
+    CharCounter counter = new CharCounter();// private
+    Formatter formatter = new Formatter();// private
+
+
+    public Initialization() {
+    }
+
+    public Initialization(Cache cache, CharCounter counter) {
+        this.cache = cache;
+        this.counter = counter;
+    }
 
     public String initCharCounting(String phrase) {
         Map<Character, Integer> resultMap = new LinkedHashMap<>();

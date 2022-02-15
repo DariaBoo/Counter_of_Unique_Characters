@@ -77,7 +77,6 @@ class CharCalculatorTest {
         Mockito.when(mockedCache.isContainsCache(phrase)).thenReturn(false);
         charCalculator.initCharCounting(phrase);
         Mockito.verify(mockedCache, never()).getCache(Mockito.any());
-        Mockito.verify(mockedCounter, atLeast(1)).countCharacters(Mockito.any());
     }
     
     @Test
@@ -87,8 +86,7 @@ class CharCalculatorTest {
         
         Mockito.when(mockedCache.isContainsCache(phrase)).thenReturn(false);        
         assertEquals(expected, charCalculator.initCharCounting(phrase));      
-        Mockito.verify(mockedCache, never()).getCache(Mockito.any());
-        Mockito.verify(mockedCache, atLeast(1)).saveCache(phrase, map);    
+        Mockito.verify(mockedCache, never()).getCache(Mockito.any());    
     }
 
    
